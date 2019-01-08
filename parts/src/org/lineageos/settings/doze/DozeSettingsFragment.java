@@ -51,6 +51,8 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
     private SwitchPreference mHandwavePreference;
     private SwitchPreference mPocketPreference;
 
+    private Handler mHandler = new Handler();
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.doze_settings);
@@ -118,8 +120,8 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        DozeUtils.enableGesture(getActivity(), preference.getKey(), (Boolean) newValue);
-        DozeUtils.checkDozeService(getActivity());
+        mHandler.post(() -> DozeUtils.checkDozeService(getActivity()));
+
         return true;
     }
 
