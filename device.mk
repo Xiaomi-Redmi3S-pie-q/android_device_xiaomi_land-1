@@ -173,10 +173,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@1.0-service-sdm
 
-# Doze mode
-PRODUCT_PACKAGES += \
-    XiaomiDoze
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
@@ -320,6 +316,10 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     libebtc
+    
+# Xiaomi Parts
+PRODUCT_PACKAGES += \
+    XiaomiParts
 
 # QMI
 PRODUCT_PACKAGES += \
